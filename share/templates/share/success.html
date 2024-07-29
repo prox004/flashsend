@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submission Successful</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            margin: 10px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .code-container {
+            background-color: #f8f9fa;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        .code-container:hover {
+            background-color: #e9ecef;
+        }
+        .code {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-right: 10px;
+        }
+        .copy-icon {
+            font-size: 20px;
+            color: #007BFF;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px 0;
+            width: 100%;
+            max-width: 200px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .green-button {
+            background-color: #28a745;
+        }
+        .green-button:hover {
+            background-color: #218838;
+        }
+        @media (min-width: 600px) {
+            .button-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .button-container button {
+                margin: 10px 5px;
+                width: 48%;
+            }
+        }
+    </style>
+    <script>
+        function copyCode() {
+            const codeElement = document.getElementById('code');
+            const code = codeElement.textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('Code copied to clipboard');
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Submission Successful</h1>
+        <p>Your text has been submitted. Use this code to retrieve it:</p>
+        <div class="code-container" onclick="copyCode()">
+            <span id="code" class="code">{{ code }}</span>
+            <span class="copy-icon">📋 Tap to copy</span>
+        </div>
+        <div class="button-container">
+            <button type="button" onclick="window.location.href='{% url 'retrieve_text' %}'">Retrieve Text</button>
+            <button type="button" class="green-button" onclick="window.location.href='{% url 'submit_text' %}'">Paste Another Text</button>
+        </div>
+    </div>
+</body>
+</html>

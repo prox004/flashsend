@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Retrieve Text</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            background-color: #f2f2f2;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            align-self: auto;
+        }
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            max-width: 200px;
+        }
+        input[type="submit"]:hover {
+            background-color: #000000;
+            animation: ease-in 0.1s;
+        }
+        .image {
+            margin-top: auto;
+            margin-bottom: 10px;
+            
+        }
+        footer {
+            background-color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            border-top: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            color: #333;
+            width: 100%;
+            overflow-x: hidden;
+            margin-top: auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class = "image">
+        <a href="">
+        <img src="https://i.ibb.co/Y0h4GsQ/image-removebg-preview.png" alt="image-removebg-preview" border="0">
+        </a>
+    </div>
+    <div class="container">
+        <h1>Retrieve Text</h1>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="code" placeholder="Enter 4-digit code" required><br>
+            <input type="submit" value="Retrieve">
+        </form>
+    </div>
+    <footer>
+        Made with ❤️ by Protyoy
+    </footer>
+</body>
+</html>

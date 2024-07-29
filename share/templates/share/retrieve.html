@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Retrieved Text</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            margin: 10px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .text-container {
+            background-color: #f8f9fa;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            white-space: pre-wrap;
+            text-align: left;
+            max-height: 300px; /* Fixed height */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+        .text-container:hover {
+            background-color: #e9ecef;
+        }
+        .text {
+            font-size: 16px;
+            color: #333;
+            word-wrap: break-word;
+        }
+        .copy-icon {
+            font-size: 20px;
+            color: #007BFF;
+            justify-self: center;
+            align-self: center;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px 0;
+            width: 100%;
+            max-width: 200px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .green-button {
+            background-color: #28a745;
+        }
+        .green-button:hover {
+            background-color: #218838;
+        }
+        @media (min-width: 600px) {
+            .button-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .button-container button {
+                margin: 10px 5px;
+                width: 48%;
+            }
+        }
+    </style>
+    <script>
+        function copyText() {
+            const textElement = document.getElementById('text');
+            const text = textElement.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Text copied to clipboard');
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Retrieved Text</h1>
+        <div class="text-container" onclick="copyText()">
+            <pre id="text" class="text">{{ text }}</pre>
+            <span class="copy-icon">📋 Tap to copy</span>
+        </div>
+        <div class="button-container">
+            <button type="button" onclick="window.location.href=&quot;{% url 'submit_text' %}&quot;">Paste a Text</button>
+            <button type="button" class="green-button" onclick="window.location.href='{% url 'retrieve_text' %}'">Retrieve Another Text</button>
+        </div>
+    </div>
+</body>
+</body>
+</html>
